@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Convocation</title>
+    <style>
+        .myParagraphe{
+            font-family:Bookman Old Style;
+            font-size:20px;
+            line-height: 200%;
+
+        }
+    </style>
+</head>
+<body>
+    <table  width="100%" style="margin: 0px;">
+        <tr>
+            <td style="text-align:left;">
+                <img width="150px" height="150px" src="{insigne}">
+            </td>
+            <td style="text-align:center;font-family:'Bookman Old Style';font-size:11px;font-weight: bold;text-decoration: underline">
+                <p>ROYAUME DU MAROC</p>
+                <p>FORCES ARMEES ROYALES</p>
+                <p>{ecole}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <p style="font-family:'Bookman Old Style';font-size:20px;font-weight: bold" ><u>=00=  CONVOCATION  N°{numConvocation} =00=</u></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p style="text-indent:40px;margin: 5% 5% 0% 5%" class="myParagraphe" >
+                    Monsieur/Mademoiselle <b>{nomprenom}</b>, CNIE N° <b>{cin}</b>, demeurant à {addresse}, Tél N° {telephone}, est prié(e) de se présenter le {dateheure} <strong>{addresseEcole}</strong> en vue de subir les épreuves du {concours}, muni(e) des pièces  ci-après :
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <ul style="margin-left: 8%;" class="myParagraphe" >
+                    <li>La présente convocation ;</li>
+                    <li>La CNIE originale {eventuellement}</li>
+                    <li>Une photocopie de la CNIE {eventuellement}</li>
+                    <li>{doc1}</li>
+                    <li>{doc2}</li>
+                    <li>Bulletin de notes du 2° semestre de la 3° Année Secondaire Collégiale Générale (original)</li>
+                    <li>Effets de toilette et de sport.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left;marging-left=20px">
+                <img width="150px" height="50px" src="{code}">
+            </td>
+            <td colspan="2" style="text-align:center;margin-right: 5%;font-weight: bold;font-size: 15px">
+                <p> A {ville}, le {date}</p>
+                <p>Le {directeur1}, {directeur2}</p>
+                <img width="200px" height="200px" src="{cachet}">
+            </td>
+
+        </tr>
+    </table>
+</body>
+</html>

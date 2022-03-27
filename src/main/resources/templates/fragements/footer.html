@@ -1,0 +1,51 @@
+<meta charset="utf-8">
+<meta xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	layout:decorator="template">
+<div class="footer-top" data-th-fragment="basdepage">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-2 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".2s">
+                <div class="footer-widget footer-menu">
+                     <ul>
+                         <li><a th:text="#{accueil}" href="/">Accueil</a></li>
+                         <li><a th:text="#{concours1}" href="/concours">Concours</a></li>
+                         <li><a href="/avis" th:text="#{avisaupublic}">Contact</a></li>
+                     </ul>
+                </div>
+             </div>
+		<div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".2s">
+                <div class="footer-widget footer-menu">
+                     <ul>
+                         <li><a th:text="#{faq}" href="/faq">Faq</a></li>
+                         <li><a th:text="#{apropos}" href="/apropos">A propos</a></li>
+                         <li><a href="/user/inscriptions" th:text="#{resultats}">Resultat </a></li>
+                     </ul>
+                </div>
+             </div>
+             
+			<div class="col-md-3 col-sm-6 col-xs-12  col wow fadeInUp" data-wow-delay=".1s">
+				 <div sec:authorize="!isAuthenticated()" class="footer-widget footer-logo">
+                      <h2 th:text="#{obtenirUnCompte}">Obtenir un compte</h2>
+				</div> 
+			</div>
+            
+             <div sec:authorize="!isAuthenticated()" class="col-md-3 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".4s" th:attr="dir=#{direction}">
+                  <div class="footer-widget quick-contact">
+                     <!--   <h2 th:text="#{obtenirUnCompte}">Obtenir un compte</h2> -->
+                        <form action="/inscription">
+                         	<input type="text" name="nom" id="nom" th:placeholder="#{nom}">
+                        	<input type="text" name="prenom" id="prenom" th:placeholder="#{prenom}">
+                         	<button type="submit" name="button" class="btn-style" th:text="#{sinscrir}" >S'inscrire</button>
+                       </form>
+                  </div>
+             </div>
+            <div class="col-xs-12">
+                <div class="copyright col-xs-12 text-center" style="color: white;" th:utext="#{copyright}">
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+           

@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	layout:decorator="template" >
+<div class="container" data-th-fragment="deuxieme-temoignage">
+                <div class="row">
+                    <div class="test-active dotate-style">
+                        <div th:each="c,s : ${concours}" class="col-xs-12">
+                            <div class="client-wrap fix">
+                                <div class="client-info ">
+                                    <a href="/inscription"><h3 th:text="${c.titre}"></h3></a>
+                                    <span th:text="${c.ecoleFormation}"></span>           
+                                    <h3 th:text="#{dateLimit}+' : ' + ${c.fins}"></h3>
+                                </div>
+                                <div th:class="${s.index%2==0} ? 'client-img pull-right' : 'client-img pull-left client-img2'">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+<meta charset="utf-8">
+<head>
+    <title th:text="#{mentionsLegales}"></title>
+    <th:block th:replace=fragements/style></th:block>
+</head>
+<body>
+
+
+<div class="search-area" data-th-replace="fragements/search::recherche"></div>
+
+<header class="header-area" id="sticky-header">
+    <div class="container" data-th-replace="fragements/header::entete"></div>
+</header>
+
+<div class="breadcumb-area black-opacity bg-img-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="breadcumb-wrap">
+                    <h2 th:text="#{forceArmeesRoyales}">FROCES ARMEES ROYALES</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcumb-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul>
+                        <li><a th:text="#{accueil}" href="/">Acceuil</a></li>
+                        <li>/</li>
+                        <li th:text="#{mentionsLegales}"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="service-area pb-30 ">
+    <div class="container" th:attr="dir=#{direction}">
+        <div class="row" style="margin-top: 3cm;">
+            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+                <div class="section-title text-center">
+                    <h2 th:text="#{mentionsLegales}">MENTIONS LEGALES</h2>
+                    <div th:utext="#{textMentionsLegales}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div data-th-replace="fragements/footer::basdepage"></div>
+</footer>
+
+<th:block th:replace=fragements/script></th:block>
+</body>
+</html>

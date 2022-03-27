@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+<meta charset="utf-8">
+<head>
+
+    <title th:text="#{motdepasseoublie}">Mot de passe oublié</title>
+    <th:block th:replace=fragements/style></th:block>
+</head>
+<body>
+
+<div class="search-area" data-th-replace="fragements/search::recherche"></div>
+
+<header class="header-area" id="sticky-header">
+    <div class="container" data-th-replace="fragements/header::entete"></div>
+</header>
+<div class="breadcumb-area black-opacity bg-img-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="breadcumb-wrap">
+                    <h2 th:text="#{mdpoublie}">Mot de passe oublié</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contact-wrap form-style">
+                    <div style="display:inline;">
+                        <h3 th:text="#{formulaire}">Veuillez remplir le formulaire suivant :</h3>
+                    </div>
+                    <div class="cf-msg"></div>
+
+                    <form class="form-horizontal" role="form" method="post" th:action="@{/password}"
+                          th:object="${candidat}">
+                        <div class="col-sm-6 col-xs-12">
+                            <label for="codeRecovery" class="control-label" th:text="#{codeRecovery}">Code de
+                                récuperation :</label>
+                            <input th:field="*{codeRecovery}" type="text" class="form-control" id="codeRecovery"
+                                   name="codeRecovery"/>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12">
+                            <label for="pass" class="control-label" th:text="#{mdp}">Mot de passe :</label>
+                            <input th:field="*{pass}" type="password" class="form-control" id="pass" name="pass"
+                                   placeholder="" value="" pattern="^\S{6,}$" required
+                                   onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Le mot de passe doit etre au moins 6 caractères' : ''); if(this.checkValidity()) form.pass2.pattern = this.value;"/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <label for="pass2" class="control-label" th:text="#{confirmationMDP}">confirmation de mot de
+                                passe :</label>
+                            <input type="password" class="form-control" id="pass2"
+                                   name="pass2" placeholder="" value="" pattern="^\S{6,}$" required
+                                   onchange="this.setCustomValidity(this.validity.patternMismatch ? 'La confirmation doit etre identique au mot de passe' : '');"/>
+                        </div>
+                        <div style="text-align: center;" class="col-sm-12 col-xs-12">
+                            <button id="button" type="submit" class="btn btn-success"
+                                    style="margin-top: 100px;" th:text="#{valider}">VALIDER
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div data-th-replace="fragements/footer::basdepage"></div>
+</footer>
+
+<script src="/adm/vendors/jquery/dist/jquery.min.js" th:src="@{/adm/vendors/jquery/dist/jquery.min.js}"></script>
+<script src="/js/inscription.js" th:src="@{/js/inscription.js}"></script>
+
+<th:block th:replace=fragements/script></th:block>
+</body>
+</html>

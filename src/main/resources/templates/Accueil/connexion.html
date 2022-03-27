@@ -1,0 +1,100 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+
+<head>
+    <meta charset="utf-8">
+    <title th:text="#{connexion}">Connexion</title>
+    <th:block th:replace=fragements/style></th:block>
+</head>
+<body>
+<div class="search-area" data-th-replace="fragements/search::recherche"></div>
+
+<header class="header-area" id="sticky-header">
+    <div class="container" data-th-replace="fragements/header::entete"></div>
+</header>
+
+<div class="breadcumb-area black-opacity bg-img-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="breadcumb-wrap">
+                    <h2 th:text="#{connexion}">Connectez-Vous</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcumb-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul>
+                        <li><a href="/" th:text="#{accueil}">Accueil</a></li>
+                        <li>/</li>
+                        <li th:text="#{connexion}">Connexion</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact-area ptb-30" th:attr="dir=#{direction}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contact-wrap form-style">
+                    <h3 th:text="#{introduirelesinfo}">Veuillez introduire les informations suivantes :</h3>
+                    <div class="cf-msg"></div>
+                    <form class="form-horizontal" role="form" method="post" th:action="@{/login}">
+                        <div th:if="${param.error}">
+                            <div class="alert alert-danger" th:text="#{emailouPassInvalide}">
+                                Email ou Mot de passe invalide
+                            </div>
+                        </div>
+                        <div th:if="${param.logout}">
+                            <div class="alert alert-info" th:text="#{vousEtesDeconnectes}">
+                                Vous vous êtes déconnectés
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <label for="username" class="control-label" th:text="#{email}">Email:</label>
+                            <input type="email" class="form-control" id="username" name="username"
+                                   th:placeholder="#{email}" required/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <label for="password" class="control-label" th:text="#{mdp}">Mot de passe :</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                   th:placeholder="#{mdp}" value="" required autocomplete="off"/>
+                        </div>
+                        <div align="center">
+
+                        </div>
+                        <div align="center">
+                            <button id="button" type="submit" class="btn btn-success" style="margin-top: 10px;"
+                                    th:text="#{seconnecter}">SE CONNECTER
+                            </button>
+                        </div>
+                        <div align="right">
+                            <!--                                          <label th:text="#{pasEncoreInscrit}">Pas encore inscrit ?</label> -->
+                            <a style="color:blue; text-decoration: underline;" th:text="#{mdpoublie}"
+                               href="/passwordrecovery">Mot de passe oublié</a><br/>
+                            <a th:text="#{sinscrir}" href="/inscription"
+                               style="color:blue; text-decoration: underline;">S'inscrire ici</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div data-th-replace="fragements/footer::basdepage"></div>
+</footer>
+
+<th:block th:replace=fragements/script></th:block>
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+<meta charset="utf-8" dir="rtl">
+<head>
+
+    <title th:text="#{inscription}">Inscription</title>
+    <th:block th:replace=fragements/style></th:block>
+
+</head>
+<body>
+<div class="search-area" data-th-replace="fragements/search::recherche"></div>
+
+<header class="header-area" id="sticky-header">
+    <div class="container" data-th-replace="fragements/header::entete"></div>
+</header>
+<div class="breadcumb-area black-opacity bg-img-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="breadcumb-wrap">
+                    <h2 th:if="${candidat.userID == null}" th:text="#{inscription}">INSCRIPTION</h2>
+                    <h2 th:if="${candidat.userID != null}" th:text="#{editProfile}">INSCRIPTION</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcumb-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul>
+                        <li><a href="/" th:text="#{accueil}">Accueil</a></li>
+                        <li>/</li>
+                        <li th:if="${candidat.userID == null}" th:text="#{inscription}">Inscription</li>
+                        <li th:if="${candidat.userID != null}" th:text="#{editProfile}">Inscription</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcumb-area end -->
+
+<!-- contact-area start -->
+<div class="contact-area ptb-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contact-wrap form-style">
+                    <div style="display:inline;" th:attr="dir=#{direction}">
+                        <h3 th:text="#{formulaire}">Veuillez remplir le formulaire suivant :</h3>
+                        <h4 style="color:red" th:text="#{obligatoire}">*(tous les champs sont obligatoires)</h4>
+                    </div>
+                    <div class="cf-msg"></div>
+
+                    <form class="form-horizontal" role="form" method="post"
+                          th:action="@{${#httpServletRequest.requestURI.startsWith('/inscription')}?ajoutCandidat:'/user/editCandidat'}"
+                          th:object="${candidat}">
+
+                        <div th:if="${edited}">
+                            <div class="alert alert-success" th:text="#{edited}">
+                                edited
+                            </div>
+                        </div>
+
+                        <input th:field="*{userID}" type="hidden">
+                        <div class="col-sm-6 col-xs-12" dir="ltr">
+                            <label for="nom2" class="control-label">Nom</label>
+                            <input th:field="*{nom}" type="text" class="form-control" id="nom2" name="nom2"
+                                   placeholder="nom de famille" required maxlength="50"/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" dir="rtl">
+                            <label for="nomAr2" class="control-label ">الإسم العائلي</label>
+                            <input lang="ar" th:field="*{nomAr}" type="text" class="form-control keyboard txtArabic"
+                                   id="nomAr2" name="nomAr2" dir="rtl"
+                                   placeholder="الإسم  العائلي" value="" required/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" dir="ltr">
+                            <label for="prenom2" class="control-label">Prénom</label>
+                            <input lang="ar" th:field="*{prenom}" type="text" class="form-control" id="prenom2"
+                                   name="prenom2"
+                                   placeholder="prénom" required maxlength="50"/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" dir="rtl">
+                            <label for="prenomAr2" class="control-label">الإسم الشخصي</label>
+                            <input lang="ar" th:field="*{prenomAr}" type="text" class="form-control keyboard txtArabic"
+                                   id="prenomAr2" name="prenomAr2"
+                                   placeholder="الإسم  الشخصي" required/>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label th:text="#{sexe}">Sexe :</label> <select required id="selectSexe"
+                                                                            onChange="sendEnable();onNiveauChange()"
+                                                                            class="form-control" th:field="*{sexe}">
+                            <option value="0" th:text="#{choisirLeSexe}">Choisir le sexe ?</option>
+                            <option th:each="e : ${sexes}" th:text="${e.nomSexe}"
+                                    th:value="${e.sexeID}"></option>
+                        </select><span class="text-danger" th:errors="*{sexe}"></span>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label th:text="#{situationFamilliale}">Situation familliale :</label>
+                            <select required id="selectSituation" onChange="sendEnable();" class="form-control"
+                                    th:field="*{situation}">
+                                <option value="0" th:text="#{choisirLaSituationfamilliale}">Choisir la situation
+                                    familliale
+                                </option>
+                                <option th:each="e : ${situations}" th:text="${e.nomSituation}"
+                                        th:value="${e.situationID}"></option>
+                            </select>
+                            <span class="text-danger" th:errors="*{situation}"></span>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <label for="pere" class="control-label" dir="ltr">Prénom du Père</label>
+                            <input th:field="*{pere}" type="text" class="form-control" id="pere" name="pere"
+                                   placeholder="prénom du Père" required maxlength="50"/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" dir="rtl">
+                            <label for="pereAr" class="control-label">الإسم الشخصي للأب</label>
+                            <input lang="ar" th:field="*{pereAr}" type="text" class="form-control keyboard txtArabic"
+                                   id="pereAr" name="pereAr"
+                                   placeholder="الإسم الشخصي للأب" required/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <label for="mere" class="control-label" dir="ltr">Nom et prénom de la mère</label>
+                            <input th:field="*{mere}" type="text" class="form-control " id="mere" name="mere"
+                                   placeholder="Nom et prénom de la mère" required maxlength="100"/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" dir="rtl">
+                            <label for="mereAr" class="control-label">الإسم الشخصي و العائلي للأم</label>
+                            <input th:field="*{mereAr}" type="text" class="form-control keyboard txtArabic" id="mereAr"
+                                   name="mereAr"
+                                   placeholder="الإسم الكامل للأم" required/>
+                        </div>
+
+                        <div class="col-sm-4 col-xs-12" th:attr="dir=#{direction}">
+                            <label class="control-label" th:text="#{dateDeNaissance}">Date de naissance :</label> <input
+                                type="date" th:field="*{naissance}" class="form-control" required/> <span
+                                class="text-danger" th:errors="*{naissance}"></span>
+                        </div>
+                        <div class="col-sm-4 col-xs-12" th:attr="dir=#{direction}">
+                            <label for="telephone" class="control-label" th:text="#{numeroDeTelephone}">Numéro de
+                                telephone :</label>
+                            <input th:field="*{telephone}" type="tel" class="form-control" id="telephone"
+                                   name="telephone" pattern="0[567]\d{8}" placeholder="0612345678"
+                                   required maxlength="10"/>
+                        </div>
+                        <div class="col-sm-4 col-xs-12" th:attr="dir=#{direction}">
+                            <label for="cin" class="control-label" th:text="#{cin}">CNIE :</label>
+                            <input th:field="*{cin}" type="text" class="form-control" id="cin" name="cin"
+                                   placeholder="AB1234"  onblur="onCnieFocusout();"
+                                   pattern="[A-Z]{1,2}\d{1,8}" maxlength="10" required/>
+                            <span class="text-danger" id="cniError"></span>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label for="email" class="control-label" th:text="#{email}">Email :</label>
+                            <input th:field="*{email}"
+                                   th:disabled="@{${#httpServletRequest.requestURI.startsWith('/inscription')}?false:true}"
+                                   type="email" class="form-control" id="email" name="email"
+                                   placeholder="example@domain.com" required onblur="onEmailFocusout();" onchange="if(this.checkValidity()) form.email2.pattern = this.value;" />
+                            <span id="emailError" class="text-danger"></span>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label for="email2" class="control-label" th:text="#{emailConfirmation}">Confirmation Email :</label>
+                            <input th:disabled="@{${#httpServletRequest.requestURI.startsWith('/inscription')}?false:true}"
+                                   type="email" class="form-control" id="email2"
+                                   placeholder="example@domain.com" required onchange="this.setCustomValidity(this.validity.patternMismatch ? 'La confirmation doit etre identique' : '');" />
+                            <span id="emailError2" class="text-danger"></span>
+                        </div>
+                        <div th:if="*{userID == null}" class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label for="pass" class="control-label" th:text="#{mdp}">Mot de passe :</label>
+                            <input th:field="*{pass}" type="password" class="form-control" id="pass" name="pass"
+                                   placeholder="" value="" pattern="^\S{6,}$" required
+                                   onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Le mot de passe doit etre au moins 6 caractères' : ''); if(this.checkValidity()) form.pass2.pattern = this.value;"/>
+                        </div>
+
+                        <div th:if="*{userID == null}" class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label for="pass2" class="control-label" th:text="#{confirmationMDP}">confirmation de mot de
+                                passe :</label>
+                            <input type="password" class="form-control" id="pass2"
+                                   name="pass2" placeholder="" value="" pattern="^\S{6,}$" required
+                                   onchange="this.setCustomValidity(this.validity.patternMismatch ? 'La confirmation doit etre identique au mot de passe' : '');"/>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label th:text="#{region}">Région :</label> <select required id="regionDropdown"
+                                                                                onChange="onRegionChange();"
+                                                                                class="form-control"
+                                                                                th:field="*{region}">
+                            <option value="0" th:text="#{choisirLaRegion}">Choisir la region ?</option>
+                            <option th:each="e : ${regions}" th:text="${e.nomRegion}"
+                                    th:value="${e.regionID}"></option>
+                        </select><span class="text-danger" th:errors="*{region}"></span>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label th:text="#{ville}">Ville :</label>
+                            <select required id="villeDropdown" onChange="sendEnable();"
+                                    class="form-control" th:field="*{ville}">
+                                <option value="0" th:text="#{choisirLaVille}">Choisir la ville ?</option>
+                                <option th:each="e : ${villes}" th:text="${e.nomVille}"
+                                        th:value="${e.villeID}"></option>
+                            </select><span class="text-danger" th:errors="*{ville}"></span>
+                        </div>
+
+                        <div class="col-xs-12" th:attr="dir=#{direction}">
+                            <label for="adresse" class="col-sm-6 col-xs-12" th:text="#{adresse}">Adresse :</label>
+                            <input th:field="*{adresse}" type="text" placeholder="Adresse" id="adresse" name="adresse"
+                                   required maxlength="150">
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <input style="width:15px; height:15px;" type="checkbox" name="marocain" id="marocain"
+                                   value="value" onChange="onValidationChange();">
+                            <label for="marocain" th:text="#{nationnaliteMarocaine}">Je suis de nationnalité
+                                MAROCAINE</label>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <input style="width:15px; height:15px;" onChange="onNationnaliteChange();" type="checkbox"
+                                   name="multinational" id="multinational"
+                                   value="value"/>
+                            <label for="multinational" th:text="#{jaiUnedeuxiemeNationnalite}">J'ai une deuxième
+                                nationnalité</label>
+                        </div>
+
+                        <div id="nationaliteDiv" class="col-sm-6 col-xs-12" style="display:none"
+                             th:attr="dir=#{direction}">
+                            <label for="nationalite" class="control-label" th:text="#{deuxiemeNationnalite}">Deuxième
+                                nationnalité ?</label>
+                            <input th:field="*{nationnalite}" type="text" class="form-control" id="nationalite"
+                                   name="nationalite"
+                                   th:placeholder="#{deuxiemeNationnalite}" value="" pattern="[a-zA-Z]{3,25}"
+                                   maxlength="25"/>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label th:text="#{niveauDeScolarite}">Niveau de scolarité :</label>
+                                <select required onChange="sendEnable();" id="niveauDropdown" class="form-control" th:field="*{niveau}">
+                            <option value="0" th:text="#{choisirLeniveauDeScolarite}">Choisir le niveau d'etude ?
+                            </option>
+                            <option th:each="e : ${niveaux}" th:text="${e.niveauScolaire}" th:value="${e.niveauID}"></option>
+                        </select><span class="text-danger" th:errors="*{niveau}"></span>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label id="optionLabel" th:text="#{option}">Option :</label>
+                            <select required id="optionDropdown" onChange="sendEnable();" class="form-control" th:field="*{option}">
+                                <option value="0" th:text="#{choisirLoption}">Choisir l'option ?</option>
+                                <option th:each="e : ${options}" th:text="${e.nomOption}" th:value="${e.optionID}"></option>
+                            </select>
+                            <span class="text-danger" th:errors="*{option}"></span>
+                        </div>
+
+                        <div id="divAnneeBacDropdown" class="col-sm-6 col-xs-12">
+                            <label th:text="#{anneeDubac}">Année d'obtention du bac :</label>
+                            <select required id="bacDropdown" onChange="" class="form-control" th:field="*{anneebac}">
+                                <option value="0" th:text="#{choisirlannee}">Choisir l'année ?</option>
+                                <option th:each="e : ${annees}" th:text="${e.toString()}" th:value="${e}"></option>
+                            </select>
+                            <span class="text-danger" th:errors="*{option}"></span>
+                        </div>
+
+                        <div id="divmassar" class="col-sm-6 col-xs-12">
+                            <label for="massar" class="control-label" th:text="#{codemassar}">Code Massar :</label>
+                            <input th:field="*{massar}" type="text" class="form-control" id="massar" name="massar"
+                                   placeholder="" required/>
+                        </div>
+
+                        <div id="lieuIstaDiv" class="col-sm-6 col-xs-12">
+                            <label for="lieuIsta" class="control-label" th:text="#{lieuIsta}">lieu Ista :</label>
+                            <input th:field="*{etablissementNom}" type="text" class="form-control" id="lieuIsta" name="etablissementNom"
+                                   placeholder="" required/>
+                        </div>
+
+
+                        <div style="display: flex;flex-direction: row;margin-top: 2%" class="col-sm-12 col-xs-12"
+                             th:attr="dir=#{direction}">
+                            <label for="captcha" class="col-sm-4 col-xs-12" th:text="#{saisirCaptcha}">Saisir le Captcha
+                                :</label>
+                            <img class="col-sm-3 col-xs-12" th:src="${captcha.captchaImage}"/>
+                            <input th:field="${captcha.userString}" name="captcha" type="text" id="captcha"
+                                   class="col-sm-3 col-xs-12" maxlength="10" required/>
+                            <div align="right">
+                                <span class="col-sm-12 col-xs-12 text-danger" th:text="${captchaError}"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-xs-12" th:attr="dir=#{direction}">
+                            <blockquote><p><b th:text="#{droitsdp}"></b></p></blockquote>
+                            <input style="width:15px; height:15px;" onChange="onValidationChange();" type="checkbox"
+                                   name="validationMentions" id="validationMentions"
+                                   value="false">
+                            <label for="validationMentions" th:utext="#{jailuMentions}"></label>
+                        </div>
+                        <div class="col-sm-12 col-xs-12" th:attr="dir=#{direction}">
+                            <input style="width:15px; height:15px;" onChange="onValidationChange();" type="checkbox"
+                                   name="validation" id="validation"
+                                   value="false">
+                            <label for="validation" th:text="#{exact}"> je certifie que les informations communiquées
+                                sont exactes (toute inconformité entrainera le rejet automatique du dossier)</label>
+                        </div>
+                        <div style="text-align: center;" class="col-sm-12 col-xs-12" th:attr="dir=#{direction}">
+                            <button id="button" disabled type="submit" class="btn btn-success"
+                                    style="margin-top: 100px;" onmouseenter="onSubmitMouseOver();"
+                                    onmouseleave="onSubmitMouseOut();" th:text="#{valider}">VALIDER
+                            </button>
+                            <section class="popup-container">
+                                <div id="popup-box" style="display:none; margin-top: 30px;">
+                                    <span class="text-danger" id="submitErrors"></span>
+                                </div>
+                            </section>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script th:inline="javascript">
+        function getChoisirLaVille()
+        {
+            return /*[[#{choisirLaVille}]]*/ 'Choisir la ville';
+        }
+        function getChoisirOption()
+        {
+            return /*[[#{choisirOption}]]*/ 'Choisir une option';
+        }
+        function getChoisirSpecialite()
+        {
+            return /*[[#{choisirSpecialite}]]*/ 'Choisir une spécialité';
+        }
+        function getDerniereNote()
+        {
+            return /*[[#{derniereNote}]]*/ "Note obtenu durant la dernière année d'étude";
+        }
+        function getNoteBaccalaureat()
+        {
+            return /*[[#{noteBaccalaureat}]]*/ "Note du baccalauréat";
+        }
+        function getNotePremiereAnnee()
+        {
+            return /*[[#{notePremiereAnnee}]]*/ "Note obtenu durant la première année des études universitaires";
+        }
+        function getNoteSup1()
+        {
+            return /*[[#{noteSup1}]]*/ "Note obtenu durant la première année des études supérieures";
+        }
+        function getNoteSup2()
+        {
+            return /*[[#{noteSup2}]]*/ "Note obtenu durant la deuxième année des études supérieures";
+        }
+        function getCompteExiste()
+        {
+            return /*[[#{compteExiste}]]*/ "Un compte est déjà associé à cette adresse mail";
+        }
+        function getCinExiste()
+        {
+            return /*[[#{cnieExiste}]]*/ "Un CNIE est déjà existe";
+        }
+        function getConditionMarocain()
+        {
+            return /*[[#{conditionMarocain}]]*/ "Seule les citoyens de nationnalité marocaine peuvement s'inscrire";
+        }
+        function getConditionInformationsExacts()
+        {
+            return /*[[#{conditionInformationsExacts}]]*/ "Veuillez confirmer l'exactitude de ces informations";
+        }
+        function getValidationMentions()
+        {
+            return /*[[#{validationMentionsLegales}]]*/ "Veuillez lire les mentions légales";
+        }
+        function getSexe()
+        {
+            return /*[[#{sexe}]]*/ "Sexe";
+        }
+        function getRegion()
+        {
+            return /*[[#{region}]]*/ "Region";
+        }
+        function getVille()
+        {
+            return /*[[#{ville}]]*/ "Ville";
+        }
+        function getSituation()
+        {
+            return /*[[#{situationFamilliale}]]*/ "Situation familliale";
+        }
+        function getNiveau()
+        {
+            return /*[[#{niveauDeScolarite}]]*/ "Niveau";
+        }
+        function getOption()
+        {
+            return /*[[#{option}]]*/ "Option";
+        }
+        function getRemplirChamps()
+        {
+            return /*[[#{remplirChamps}]]*/ "Veuillez remplir le champs";
+        }
+        function getAnneeDuBac()
+        {
+            return /*[[#{anneeDubac}]]*/ "Année d'obtention du baccalauréat";
+        }
+        function getDeuxiemeLangue()
+        {
+            return /*[[#{2langue}]]*/ "Deuxième langue étrangère";
+        }
+        function getNoteSemestre1()
+        {
+            return /*[[#{noteSemestre1}]]*/ "Note obtenu durant le 1er semestre";
+        }
+        function getNoteSemestre2()
+        {
+            return /*[[#{noteSemestre2}]]*/ "Note obtenu durant le 2ème semestre";
+        }
+        function getSpecialite()
+        {
+            return /*[[#{specialite}]]*/ "Spécialité";
+        }
+        function getOption()
+        {
+            return /*[[#{option}]]*/ "Option";
+        }
+
+        function getbacDropdown() { return /*[[#{bac}]]*/ "bac"; }
+        function getoptionDropdown() { return /*[[#{option}]]*/ "Option"; }
+        function getlangueDropdown() { return /*[[#{langue}]]*/ "langue"; }
+        function getetablissementDropdown() { return /*[[#{etablissement}]]*/ "etablissement"; }
+        function getetablissementCategoriesDropdown() { return /*[[#{categEtablissement}]]*/ "categEtablissement"; }
+
+</script>
+
+<footer>
+    <div data-th-replace="fragements/footer::basdepage"></div>
+</footer>
+<!-- jQuery -->
+<script src="/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/inscription8.js}"></script>
+
+<th:block th:replace=fragements/script></th:block>
+</body>
+</html>

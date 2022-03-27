@@ -1,0 +1,96 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+<head>
+    <th:block th:replace=fragements/style></th:block>
+    <title>Concours-Details</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<div class="search-area" data-th-replace="fragements/search::recherche"></div>
+
+<header class="header-area" id="sticky-header">
+    <div class="container" data-th-replace="fragements/header::entete"></div>
+</header>
+
+<div class="breadcumb-area black-opacity bg-img-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="breadcumb-wrap">
+                    <h2 th:text="${concours.titre}"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcumb-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul>
+                        <li><a href="/" th:text="#{accueil}">Accueil</a></li>
+                        <li>/</li>
+                        <li><a th:text="#{concours}">Concours</a></li>
+                        <li>/</li>
+                        <li th:text="${concours.titre}"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="blog-details-area ptb-30">
+    <div class="container" th:attr="dir=#{direction}">
+        <div class="row">
+            <div class="col-md-8 col-sm-12 col-xs-12 col">
+                <div class="blog-details-content">
+                    <h3 class="sidebar-title" th:text="#{conditionsDeCandidature}">Conditions de candidature</h3>
+                    <blockquote>
+                        <p th:utext="${concours.conditions}"></p>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="blog-details-wrap">
+                    <br><br><br>
+                    <div class="blog-details-img">
+                        <img th:src="${concours.image}" width="500" height="500" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div >
+            <div class="row">
+
+                <div th:if="${!inscrit }" align="center" class="col_xm-6 col-xs-12">
+                    <a style="background-color: #88FC70;"
+                       th:href="${concours.avis}" type="button"
+                       class="btn-style" target="_blank"
+                       th:text="#{avis}">Avis</a>
+                    <a style="background-color: #88FC70;"
+                       th:href="@{'/user/inscriptions/add/'+${concours.concoursID}}" type="button"
+                       class="btn-style"
+                       onclick="return confirm('Vous êtes sure de vouloir postuler â ce concours ?')"
+                       th:text="#{postuler}">Postuler</a>
+                </div>
+                <div th:if="${inscrit}" align="center" class="col-xs-12">
+                    <p style="color:red;" th:utext="${restrictions}" th:text="#{vousEtesDejaInscrit}">Vous
+                        êtes déja inscrit</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div data-th-replace="fragements/footer::basdepage"></div>
+</footer>
+
+<th:block th:replace=fragements/script></th:block>
+</body>
+</html>

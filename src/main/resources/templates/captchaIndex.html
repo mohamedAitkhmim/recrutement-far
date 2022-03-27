@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="shortcut icon" type="image/png" href="/images/faviconn.png">
+<title>Recrutement</title>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<link rel="stylesheet"th:href="@{/css/bootstrap.min.css}">
+<style type="text/css">
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+</style>
+</head>
+<body>
+
+
+<div class="container" >
+	<div class="row vertical-center" >
+		<div class="col-md-4" ></div>
+		<div class="col-md-4" >
+			<div class="panel panel-primary">
+			  <div class="panel-heading">Valider Captcha</div>
+			  <div class="panel-body">
+			  
+			  <form th:action="@{/captchaValidate}" method="POST">
+			      <div class="g-recaptcha" data-sitekey="6Ld21-EUAAAAAPcSzGVuw3FXgtE3j2pTn7dXi1Qz"></div>
+			      <br/>
+			      <input class="btn btn-primary" type="submit" value="Submit">
+			    </form>
+			  
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+</html>

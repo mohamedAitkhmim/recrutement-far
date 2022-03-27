@@ -1,0 +1,36 @@
+<!DOCTYPE html >
+<html>
+<head xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8" />
+
+        <script src=" /js/vendor/jquery-1.12.4.min.js" th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
+        <script src=" /js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+        <script src=" /js/owl.carousel.min.js" th:src="@{/js/owl.carousel.min.js}"></script>
+        <script src=" /js/counterup.main.js" th:src="@{/js/counterup.main.js}"></script>
+        <script src=" /js/imagesloaded.pkgd.min.js" th:src="@{/js/imagesloaded.pkgd.min.js}"></script>
+        <script src=" /js/isotope.pkgd.min.js" th:src="@{/js/isotope.pkgd.min.js}"></script>
+        <script src=" /js/jquery.waypoints.min.js" th:src="@{/js/jquery.waypoints.min.js}"></script>
+        <script src=" /js/jquery.magnific-popup.min.js" th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+        <script src=" /js/jquery.slicknav.min.js" th:src="@{/js/jquery.slicknav.min.js}"></script>
+        <script src=" /js/snake.min.js" th:src="@{/js/snake.min.js}"></script>
+        <script src=" /js/wow.min.js" th:src="@{/js/wow.min.js}"></script>
+        <script src=" /js/plugins.js" th:src="@{/js/plugins.js}"></script>
+        <script src=" /js/scripts.js" th:src="@{/js/scripts.js}"></script>
+        <script src="/js/vendor/modernizr-2.8.3.min.js" th:src="@{/js/vendor/modernizr-2.8.3.min.js}"></script>
+        
+        
+        <script th:src="@{/keyboard/jquery-1.11.0.min.js}"></script>
+        <script th:src="@{/keyboard/jquery.ml-keyboard.js}"></script>
+        <script th:src="@{/keyboard/demo.js}"></script>
+        <script th:inline="javascript">
+        function concoursIndisponibles()
+        {
+            var message = /*[[#{concoursIndisponibles}]]*/;
+            alert(message);
+            return false;
+        }
+        </script>
+        
+</head>
+
+</html>

@@ -1,0 +1,19 @@
+<html  xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	layout:decorator="template">
+<div class="search-area" data-th-fragment="recherche" th:attr="dir=#{direction}">
+            <span class="closs-btn" th:text="#{fermer}">Fermer</span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="search-form">
+                            <form th:action="@{/concours}" method="post">
+                                <input type="text" name="search" id="search" th:placeholder="#{cherchezIci}">
+                                <button type="submit" name="button" class="btn-style" th:text="#{chercher}">Chercher</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

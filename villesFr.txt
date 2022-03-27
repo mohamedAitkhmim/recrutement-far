@@ -1,0 +1,396 @@
+﻿Tanger-Tétouan-Al Hoceïma
+Aïn Dorij
+Ajdir
+Al Hoceïma
+Assilah
+Bab Berred
+Bab Taza
+Beni Bouayach
+Bni Hadifa
+Brikcha
+Chefchaouen
+Dar Bni Karrich
+Dar Chaoui
+Fnideq
+Gueznaia
+Imzouren
+Issaguen
+Jebha
+Karia
+Khémis Sahel
+Ksar El Kébir
+Laouamra
+Larache
+Martil
+M'Diq
+Moqrisset
+Oued Laou
+Ouezzane
+Sidi Bouafif
+Tamassint
+Tanger
+Targuist
+Tétouan
+Tnine Sidi Lyamani
+Zoumi
+<>
+L'Oriental
+Ahfir
+Aïn Beni Mathar
+Aïn Erreggada
+Aklim
+Al Aâroui
+Beni Chiker
+Beni Ensar
+Ben Taïeb
+Berkane
+Bni Drar
+Bni Tadjite
+Bouanane
+Bouarfa
+Bouizazarene Ihaddadene
+Dar El Kebdani
+Debdou
+Driouch
+El Aïoun Sidi Mellouk
+Figuig
+Guercif
+Jerada
+Kariat Arekmane
+Kassita
+Kerouna
+Madagh
+Midar
+Nador
+Naïma
+Oued El Heimer
+Oujda
+Ras El Ma
+Saïdia
+Selouane
+Sidi Boubker
+Sidi Slimane Echcharaa
+Tafersit
+Talsint
+Taourirt
+Tendrara
+Tiztoutine
+Touissit
+Zaïo
+Zeghanghane
+<>
+Fès-Meknès
+Agouraï
+Aïn Aicha
+Aïn Cheggag
+Aïn Jemaa
+Aïn Karma
+Aïn Leuh
+Aïn Taoujdate
+Ajdir
+Aknoul
+Al Machouar - Stinia
+Azrou
+Bhalil
+Bouderbala
+Boufakrane
+Boulemane
+El Hajeb
+El Menzel
+Fès
+Ghafsai
+Guigou
+Haj Kaddour
+Ifrane
+Imouzzer Kandar
+Imouzzer Marmoucha
+Kantina
+Karia Ba Mohamed
+Matmata
+Méchouar Fès Jdid
+Meknès
+M'Haya
+Missour
+Moulay Driss Zerhoun
+Moulay Yaâcoub
+N'zalat
+Oued Amlil
+Ouislane
+Oulad Tayeb
+Oulad Zbaïr
+Outat El Haj
+Ras El Mae
+Ribate El Kheir
+Sabaâ Aïyoun
+Sebt Jahjouh
+Séfrou
+Sidi Addi
+Skhinate
+Skoura
+Souk L'had
+Tahla
+Taïnaste
+Taounate
+Taza
+Thar Es-Souk
+Timahdite
+Tissa
+Tizi Ouasli
+Toulal
+Zaouïat Bougrine
+Zoualet
+Zrarda
+<>
+Rabat-Salé-Kénitra
+Aïn Attig
+Aïn El Aouda
+Aït Yadine
+Arbaoua
+Dar Gueddari
+Ezzhiliga
+Had Kourt
+Harhoura
+Jorf El Melha
+Kénitra
+Khémisset
+Khnichet
+Lalla Mimouna
+Maâziz
+Mechra Bel Ksiri
+Mehdia
+Mers El Kheir
+Moulay Bousselham
+Oulmès
+Rabat
+Rommani
+Salé
+Sidi Allal El Bahraoui
+Sidi Allal Tazi
+Sidi Bouknadel
+Sidi Kacem
+Sidi Slimane
+Sidi Taïbi
+Sidi Yahya El Gharb
+Sidi Yahya Zaër
+Skhirat
+Souk El Arbaa
+Tamesna
+Témara
+Tiddas
+Tiflet
+Touarga
+Zirara
+<>
+Béni Mellal-Khénifra
+Afourar
+Aghbala
+Aguelmous
+Aït Ishaq
+Azilal
+Bejaâd
+Béni Mellal
+Boujniba
+Boulanouare
+Bradia
+bzou
+Dar Ould Zidouh
+Demnate
+El Kbab
+El Ksiba
+Fkih Ben Salah
+Foum Jemaa
+Had Bouhssoussen
+Hattane
+Ighram Laalam
+Kahf Nssar
+Kasba Tadla
+Kerrouchen
+Khénifra
+khouribga
+Moulay Bouazza
+M'rirt
+Ouaouizeght
+Ouaoumana
+Oued Zem
+Oulad Ayad
+Oulad M'Barek
+Oulad Yaïch
+Sidi Jaber
+Souk Sift Oulad Nemma
+Tighassaline
+Tighza
+Zaouïat Cheikh
+<>
+Casablanca-Settat
+Aïn Harrouda
+Azemmour
+Ben Ahmed
+Benslimane
+Berrechid
+Bni Yakhlef
+Bouskoura
+Bouznika
+Casablanca
+Dar Bouazza
+Deroua
+El Borouj
+El Gara
+El Jadida
+El Mansouria
+Guisser
+Had Soualem
+Laâounate
+Lahraouyine
+Lbir Jdid
+Loualidia
+Loulad
+Méchouar de Casablanca
+Médiouna
+Mohammédia
+Moulay Abdellah
+Nouaceur
+Oulad Abbou
+Oulad Amrane
+Oulad Frej
+Oulad Ghadbane
+Oulad M'Rah
+Oulad Saïd
+Ras El Aïn
+Sebt Lamaarif
+Settat
+Sidi Ali Ben Hamdouche
+Sidi Bennour
+Sidi Bouzid
+Sidi Rahal Chatai
+Sidi Smaïl
+Tit Mellil
+Zemamra
+<>
+Marrakech-Safi
+ Aït Daoud
+Aït Ourir
+Amizmiz
+Assahrij
+Ben Guerir
+Bouguedra
+Chichaoua
+Echemmaia
+El Hanchane
+El Kelaâ des Sraghna
+Essaouira
+Ghmate
+Hrara
+Ighoud
+Imintanoute
+Jamâat Shaim
+Laakarta
+Laâttaouia
+Lalla Takerkoust
+Loudaya
+Marrakech
+Méchouar-Kasba
+M'Nabha
+Moulay Brahim
+Ounagha
+Safi
+Sebt Gzoula
+Sidi Abdallah Ghiat
+Sidi Ahmed
+Sidi Bou Othmane
+Sidi Rahhal
+Sid L'Mokhtar
+Sid Zouine
+Skhour Rehamna
+Smimou
+Tafetachte
+Tahannaout
+Talmest
+Tamallalt
+Tamanar
+Tamansourt
+Tameslouht
+Youssoufia
+<>
+Drâa-Tafilalet
+Agdz
+Aghbalou Nssardane
+Alnif
+Aoufous
+Arfoud
+Boudnib
+Boumalne Dadès
+Boumia
+Errachidia
+Er-Rich
+Goulmima
+Gourrama
+itzer
+Jorf
+Kalâat M'Gouna
+Midelt
+Moulay Ali Cherif
+Ouarzazate
+Skoura
+Tabounte
+Taznakht
+Tinejdad
+Tinghir
+Tounfite
+Zagora
+Zaïda
+<>
+Souss-Massa
+Agadir
+Aït Amira
+Aït Baha
+Aït Iaaza
+ Aït Melloul
+Akka
+Aoulouz
+Aourir
+Belfaa
+Biougra
+Dcheira El Jihadia
+Drargua
+El Guerdane
+Fam El Hisn
+Foum Zguid
+Inezgane
+Irherm
+Lqliâa
+Massa
+Oulad Berhil
+Oulad Teïma
+Sidi Bibi
+Tafraout
+Taliouine
+taroudant
+Tata
+Temsia
+Tiznit
+<>
+Guelmim-Oued Noun
+Assa
+Bouizakarne
+El Ouatia
+Guelmim
+Lakhsas
+Mirleft
+Sidi Ifni
+Taghjijt
+Tan-Tan
+Zag
+<>
+Laâyoune-Sakia El Hamra
+ LAAYOUNE 
+ TARFAYA
+ SMARA
+ BOUJDOUR
+<>
+Dakhla-Oued Ed-Dahab
+ AOUSERD
+ TICHALA
+ BIR GUENDOUZ
+ LAGUIRA
+ DAKHLA
+ ARGOUB

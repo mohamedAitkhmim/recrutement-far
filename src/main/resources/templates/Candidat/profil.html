@@ -1,0 +1,236 @@
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+<meta charset="utf-8" dir="rtl">
+<head>
+
+    <title th:text="#{inscription}">Inscription</title>
+    <th:block th:replace=fragements/style></th:block>
+
+</head>
+<body>
+
+<div class="search-area" data-th-replace="fragements/search::recherche"></div>
+
+<header class="header-area" id="sticky-header">
+    <div class="container" data-th-replace="fragements/header::entete"></div>
+</header>
+<div class="breadcumb-area black-opacity bg-img-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="breadcumb-wrap">
+                    <h2 th:text="#{profil}">PROFIL</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcumb-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul>
+                        <li><a href="/" th:text="#{accueil}">Accueil</a></li>
+                        <li>/</li>
+                        <li th:text="#{profil}">Profil</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcumb-area end -->
+
+<!-- contact-area start -->
+<div class="contact-area ptb-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contact-wrap form-style">
+                    <div class="cf-msg"></div>
+                    <form class="form-horizontal" role="form" method="post"
+                          action="#"
+                          th:object="${candidat}">
+
+                        <input th:field="*{userID}" type="hidden">
+                        <div class="col-sm-6 col-xs-12" dir="ltr">
+                            <label for="nom2" class="control-label">Nom</label>
+                            <input th:field="*{nom}" type="text" class="form-control" id="nom2" name="nom2"
+                                   required maxlength="50" disabled/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" dir="rtl">
+                            <label for="nomAr2" class="control-label ">الإسم العائلي</label>
+                            <input lang="ar" th:field="*{nomAr}" type="text" class="form-control keyboard txtArabic"
+                                   id="nomAr2" name="nomAr2" dir="rtl"
+                                   value="" required disabled/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" dir="ltr">
+                            <label for="prenom2" class="control-label">Prénom</label>
+                            <input lang="ar" th:field="*{prenom}" type="text" class="form-control" id="prenom2"
+                                   name="prenom2"
+                                   required maxlength="50" disabled/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" dir="rtl">
+                            <label for="prenomAr2" class="control-label">الإسم الشخصي</label>
+                            <input lang="ar" th:field="*{prenomAr}" type="text" class="form-control keyboard txtArabic"
+                                   id="prenomAr2" name="prenomAr2"
+                                   required disabled/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label for="cin" class="control-label" th:text="#{cin2}">CNIE :</label>
+                            <input th:field="*{cin}" type="text" class="form-control" id="cin" name="cin"
+                                   maxlength="10" disabled/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label class="control-label" th:text="#{dateDeNaissance}">Date de naissance :</label> <input
+                                type="date" th:field="*{naissance}" class="form-control" required disabled/> <span
+                                class="text-danger" th:errors="*{naissance}"></span>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label th:text="#{sexe}">Sexe :</label>
+                            <input th:value="${candidat.sexe}" type="text"
+                                   class="form-control" id="sexe" name="sexe"
+                                   disabled/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label th:text="#{situationFamilliale}">Situation familliale :</label>
+                            <input th:value="${candidat.situation}" type="text"
+                                   class="form-control" id="situation" name="situation"
+                                   disabled/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <label for="pere" class="control-label" dir="ltr">Prénom du Père</label>
+                            <input th:field="*{pere}" type="text" class="form-control" id="pere" name="pere"
+                                   required maxlength="50" disabled/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" dir="rtl">
+                            <label for="pereAr" class="control-label">الإسم الشخصي للأب</label>
+                            <input lang="ar" th:field="*{pereAr}" type="text" class="form-control keyboard txtArabic"
+                                   id="pereAr" name="pereAr"
+                                   required disabled/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <label for="mere" class="control-label" dir="ltr">Nom et prénom de la mère</label>
+                            <input th:field="*{mere}" type="text" class="form-control " id="mere" name="mere"
+                                   required maxlength="100" disabled/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" dir="rtl">
+                            <label for="mereAr" class="control-label">الإسم الشخصي و العائلي للأم</label>
+                            <input th:field="*{mereAr}" type="text" class="form-control keyboard txtArabic" id="mereAr"
+                                   name="mereAr"
+                                   required disabled/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label for="telephone" class="control-label" th:text="#{numeroDeTelephone}">Numéro de
+                                telephone :</label>
+                            <input th:field="*{telephone}" type="tel" class="form-control" id="telephone"
+                                   name="telephone" pattern="0[567]\d{8}"
+                                   required maxlength="10" disabled/>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label th:text="#{region}">Région :</label>
+                            <input th:value="${candidat.region}" type="text"
+                                   class="form-control" id="region" name="region"
+                                   disabled/>
+                        </div>
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label th:text="#{ville}">Ville :</label>
+                            <input th:value="${candidat.ville}" type="text"
+                                   class="form-control" id="ville" name="ville"
+                                   disabled/>
+                        </div>
+                        <div class="col-xs-12" th:attr="dir=#{direction}">
+                            <label for="adresse" class="col-sm-6 col-xs-12" th:text="#{adresse}">Adresse :</label>
+                            <input th:field="*{adresse}" type="text" id="adresse" name="adresse"
+                                   required maxlength="150" disabled>
+                        </div>
+
+
+                        <div id="nationaliteDiv" class="col-sm-6 col-xs-12"
+                             th:attr="dir=#{direction}">
+                            <label for="nationalite" class="control-label" th:text="#{nationnaliteMarocaine}">Deuxième
+                                nationnalité ?</label>
+                            <input th:value="#{nationnaliteMarocaine}" type="text" class="form-control" id="nationalite"
+                                  disabled/>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12" th:attr="dir=#{direction}">
+                            <label th:text="#{niveauDeScolarite}">Niveau de scolarité :</label>
+                            <input th:value="${candidat.niveau}" type="text"
+                                   class="form-control" id="niveau" name="niveau"
+                                   disabled/>
+                        </div>
+
+
+                        <div id="bacDiv" th:attr="dir=#{direction}">
+                            <div class="col-sm-6 col-xs-12">
+                                <label id="optionLabel" th:text="#{option}">Option :</label>
+                                <input th:value="${candidat.option}" type="text"
+                                       class="form-control" id="option" name="option"
+                                       disabled/>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <label th:text="#{langue}">langue :</label>
+                                <input th:value="${candidat.langue}" type="text"
+                                       class="form-control" id="langue" name="langue"
+                                       disabled/>
+                            </div>
+                            <div id="divAnneeBacDropdown" class="col-sm-6 col-xs-12">
+                                <label th:text="#{anneeDubac}">Année d'obtention du bac :</label>
+                                <input th:field="*{anneebac}" type="text"
+                                       class="form-control" id="anneebac" name="anneebac"
+                                       disabled/>
+                            </div>
+
+
+
+                            <div id="enseignement" class="col-sm-6 col-xs-12">
+                                <label for="massar" class="control-label" th:text="#{enseignement}">Code Massar :</label>
+                                <input th:field="*{etablissement}" type="text" class="form-control"  disabled/>
+                            </div>
+
+                            <div th:if="${candidat.etablissement == 'NATIONAL'}" id="divmassar" class="col-sm-6 col-xs-12">
+                                <label for="massar" class="control-label" th:text="#{codemassar}">Code Massar :</label>
+                                <input th:field="*{massar}" type="text" class="form-control" id="massar" name="massar"
+                                       pattern="[A-Za-z]\d{9}" maxlength="10" disabled/>
+                            </div>
+
+                            <div th:if="${candidat.etablissement == 'ETRANGER'}" class="col-sm-6 col-xs-12">
+                                <label for="massar" class="control-label" th:text="#{nomEtabl}">etablissementNom</label>
+                                <input th:field="*{etablissementNom}" type="text" class="form-control"  disabled/>
+                            </div>
+
+                            <div th:if="${candidat.etablissement == 'ETRANGER'}" class="col-sm-6 col-xs-12">
+                                <label for="massar" class="control-label" th:text="#{categEtablissement}"></label>
+                                <input th:value="${candidat.etablissementCategory.nom}" type="text" class="form-control"  disabled/>
+                            </div>
+
+                        </div>
+
+                        <div style="text-align: center;" class="col-sm-12 col-xs-12" th:attr="dir=#{direction}">
+                            <a href="/user/editProfile" id="button"  type="submit" class="btn btn-success"
+                                    style="margin-top: 100px;" th:text="#{editProfile}">
+                            </a>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div data-th-replace="fragements/footer::basdepage"></div>
+</footer>
+<!-- jQuery -->
+<script src="/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+
+<th:block th:replace=fragements/script></th:block>
+</body>
+</html>

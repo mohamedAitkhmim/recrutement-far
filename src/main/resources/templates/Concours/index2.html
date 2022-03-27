@@ -1,0 +1,97 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+<head>
+    <meta charset="utf-8">
+    <title th:text="#{concours}">Concours</title>
+    <th:block th:replace=fragements/style></th:block>
+</head>
+<body>
+
+<div class="search-area" data-th-replace="fragements/search::recherche"></div>
+
+<header class="header-area" id="sticky-header">
+    <div class="container" th:replace="fragements/header::entete"></div>
+</header>
+
+<div class="breadcumb-area black-opacity bg-img-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="breadcumb-wrap">
+                    <h2 th:text="#{concours}">Concours</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcumb-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul>
+                        <li><a href="/" th:text="#{accueil}">Accueil</a></li>
+                        <li>/</li>
+                        <li th:text="#{concours}">Concours</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="blog-area ptb-30 bg-1">
+    <div class="container" th:attr="dir=#{direction}">
+        <div class="row">
+
+            <div th:each="c : ${liste}" class="col-md-4 col-xs-12 align-items-center my-5" style="margin-top:10px; border-style: double;background: #FFFFFF">
+                <div class="col-md-12 col-xs-12">
+                    <a th:href="${'/concours/details/'+c.concoursID}">
+                        <img class="img-fluid rounded mb-4 mb-lg-0" style="margin-top: 10px;" th:src="${c.image}" alt="">
+                    </a>
+                </div>
+                <!-- /.col-lg-8 -->
+                <div class="col-md-12 col-xs-12">
+                    <a th:href="${'/concours/details/'+c.concoursID}">
+                        <h5 class="font-weight-light" th:text="${c.titre}" style="height: 50px;"></h5>
+                    </a>
+                    <div style="margin-bottom: 10px;">
+                    <a th:href="${'/concours/details/'+c.concoursID}" class="btn-style col-md-5"
+                       th:text="#{voirPlus}" style="background-color: #88FC70;margin: 5px"> Postuler </a>
+                    <a th:href="@{'/user/inscriptions/add/'+${c.concoursID}}" class="btn-style col-md-5"
+                       onclick="return confirm('Vous êtes sure de vouloir postuler â ce concours ?')"
+                       th:text="#{postuler}" style="background-color: #88FC70;margin: 5px"> Postuler </a>
+                    </div>
+                </div>
+                <!-- /.col-md-4 -->
+            </div>
+            <div class="col-xs-12">
+                <div class="pagination-wrap">
+                    <ul>
+                        <li th:style="${liste.number==0} ? 'display:none'"><a
+                                th:href="@{'?page='+ ${liste.number}+'&search='+${search}+'&categorie='+${categorie}+'&armee='+${armee}}"><i
+                                class="fa fa-angle-left"></i></a></li>
+                        <li th:classappend="${i==liste.number+1} ? active : ''"
+                            th:each="i : ${#numbers.sequence( pagination.min, pagination.max)}">
+                            <a th:text="${i}"
+                               th:href="@{'?page='+ ${i}+'&search='+${search}+'&categorie='+${categorie}+'&armee='+${armee}}"></a>
+                        </li>
+                        <li th:style="${liste.number==pagination.pages-1} ? 'display:none'"><a
+                                th:href="@{'?page='+ ${liste.number+2}+'&search='+${search}+'&categorie='+${categorie}+'&armee='+${armee}}"><i
+                                class="fa fa-angle-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div data-th-replace="fragements/footer::basdepage"></div>
+</footer>
+
+<th:block th:replace=fragements/script></th:block>
+</body>
+</html>

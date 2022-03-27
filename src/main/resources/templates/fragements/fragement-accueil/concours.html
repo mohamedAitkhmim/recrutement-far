@@ -1,0 +1,74 @@
+<meta charset="utf-8" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+<div class="container" data-th-fragment="categories-concours">
+    <div class="row">
+
+        <div> <!-- class="col-md-7 col-sm-10 col-xs-12 wow fadeInUp" -->
+            <div class="section-title text-center">
+                <h2 th:text="#{concours}">Concours</h2>
+                <p th:text="#{paragrapheConcours}">Ce site est dédié aux concours d'accès aux différents établissement
+                    de formation des Forces Armées Royales</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-lg-3 col wow fadeInUp" data-wow-delay=".2s"></div>
+        <div class="col-md-2 col-sm-2 col-xs-10 col wow fadeInUp" data-wow-delay=".1s">
+            <div class="team-wrap2">
+                <div class="team-img">
+                    <img src="/cat/ERI.jpg" alt="" style="height: 180px;"/>
+
+                        <a href="/concours?categorie=2&armee=3" th:title="#{cycleEleveSousOfficer}" >
+                            <div class="overlay">
+                            </div>
+                        </a>
+                </div>
+                    <div class="team-content">
+                        <a href="/concours?categorie=2&armee=3" th:title="#{cycleEleveSousOfficer}" >
+                            <h3 th:text="#{cycleEleveSousOfficer}">Elève officier</h3>
+                            <h3 th:text="#{terre}" ></h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-10 col wow fadeInUp" data-wow-delay=".1s">
+                <div class="team-wrap2">
+                    <div class="team-img">
+                        <img src="/cat/efsno.jpg" alt="" style="height: 180px;"/>
+
+                        <a href="/concours?categorie=2&armee=1" th:title="#{cycleEleveSousOfficer}" >
+                            <div class="overlay">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="team-content">
+                        <a href="/concours?categorie=2&armee=1" th:title="#{cycleEleveSousOfficer}" >
+                            <h3 th:text="#{cycleEleveSousOfficer}">Elève officier</h3>
+                            <h3  th:text="#{fra}"  >--</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-10 col wow fadeInUp" data-wow-delay=".2s">
+                <div class="team-wrap2">
+                    <div class="team-img">
+                        <a href="/concours?categorie=2&armee=2" th:title="#{cycleEleveSousOfficer}" >
+                            <div class="overlay">
+                            </div>
+                        </a>
+                        <img src="/cat/cimr.jpg" alt="" style="height: 180px;"/>
+                    </div>
+                    <div class="team-content">
+                        <a href="/concours?categorie=2&armee=2" th:title="#{cycleEleveSousOfficer}" >
+                            <h3 th:text="#{cycleEleveSousOfficer}">Eléve sous-officier</h3>
+                            <h3  th:text="#{marine}" ></h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

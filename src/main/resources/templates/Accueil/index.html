@@ -1,0 +1,101 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+<meta charset="utf-8">
+<head>
+    <title th:text="#{accueil}">Accueil</title>
+    <th:block th:replace=fragements/style></th:block>
+</head>
+<body>
+
+<div id="cssLoader3" class="preloder-wrap">
+    <div class="loader">
+        <div class="child-common child4"></div>
+        <div class="child-common child3"></div>
+        <div class="child-common child2"></div>
+        <div class="child-common child1"></div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog" style="margin-top: 250px;">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                <p th:text="#{disponibleUlterieurement}"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" th:text="#{fermer}"></button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="search-area" data-th-replace="fragements/search::recherche"></div>
+
+<header class="header-area" id="sticky-header">
+    <div class="container" data-th-replace="fragements/header::entete"></div>
+</header>
+<section class="blog-area ptb-30 bg-1">
+    <div data-th-replace="fragements/fragement-accueil/concours::categories-concours"></div>
+</section>
+<section class="about-area bg-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="about-wrap" th:attr="dir=#{direction}" th:utext="#{intro}">
+                </div>
+                <br><br>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section sec:authorize="!isAuthenticated()" class="prallex-area black-opacity1 parallax ptb-180 wow fadeInUp"
+         data-speed="3" data-bg-image="/images/bg/6.JPG">
+    <div class="container" th:attr="dir=#{direction}">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-xs-12">
+                <div class="prallex-wrap text-center">
+
+                    <div sec:authorize="!isAuthenticated()" class="col-md-12 col-sm-12 col-xs-12" data-wow-delay=".4s">
+                        <h2 th:text="#{demandeinscription}">Inscription</h2>
+                        <form class="form-horizontal" role="form" action="/inscription">
+                            <div class="col-sm-5 col-xs-12">
+                                <input type="text" class="form-control" th:placeholder="#{nom}" id="nom" name="nom">
+                            </div>
+                            <div class="col-sm-5 col-xs-12">
+                                <input type="text" class="form-control" th:placeholder="#{prenom}" name="prenom"
+                                       id="prenom">
+                            </div>
+                            <div class="col-sm-2 col-xs-12">
+                                <button id="button" type="submit" class="btn btn-success" th:text="#{sinscrir}">
+                                    S'inscrire
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="testmonial-area ptb-30 bg-1">
+    <div data-th-replace="fragements/fragement-accueil/temoignage2::deuxieme-temoignage"></div>
+</section>
+
+<footer>
+    <div data-th-replace="fragements/footer::basdepage"></div>
+</footer>
+
+<th:block th:replace=fragements/script></th:block>
+<script src="/js/video.js" th:src="@{/js/video.js}"></script>
+</body>
+</html>

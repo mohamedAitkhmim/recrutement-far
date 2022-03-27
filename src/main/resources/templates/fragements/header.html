@@ -1,0 +1,92 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+
+<meta charset="utf-8">
+<div class="container" data-th-fragment="entete" th:attr="dir=#{direction}">
+    <!-- style="position: fixed; z-index: 1000; background-color: #ffffff; width: 100%; align-content: center;" -->
+
+    <div class="row">
+        <div class="col-md-2 hidden-sm hidden-xs">
+
+            <div sec:authorize="isAuthenticated()">
+                <h5 sec:authentication="name">email</h5>
+            </div>
+        </div>
+        <div class="col-md-9 hidden-sm hidden-xs">
+            <div class="mainmenu">
+                <ul id="navigation">
+                    <li><a href="/" th:text="#{accueil}">Accueil</a></li>
+                    <li><a href="/user/inscriptions" th:text="#{resultats}">Resultat </a>
+                    </li>
+                    <li><a th:text="#{concours1}" href="/concours">Concours <i class="fa fa-angle-down"></i></a>
+                        <ul class="submenu">
+                            <!--                            <li><a th:text="#{cycleEleveOfficier}" href="/concours?categorie=1">Cycle élève Officier</a>-->
+                            <!--                                <ul class="submenu">-->
+                            <!--                                    <li><a th:text="#{terre}" href="/concours?categorie=1&armee=3">Armée de terre </a>-->
+                            <!--                                    </li>-->
+                            <!--                                    <li><a th:text="#{fra}" href="/concours?categorie=1&armee=1">Armée de l'air</a></li>-->
+                            <!--                                    <li><a th:text="#{marine}" href="/concours?categorie=1&armee=2">Marine</a></li>-->
+                            <!--                                    <li><a th:text="#{sante}" href="/concours?categorie=1&armee=4">santé militaire </a>-->
+                            <!--                                    </li>-->
+                            <!--                                </ul>-->
+                            <!--                            </li>-->
+                            <li><a th:text="#{cycleEleveSousOfficer}" href="/concours?categorie=2">Cycle élève
+                                Sous-officer</a>
+                                <ul class="submenu">
+                                    <li><a th:text="#{terre}" href="/concours?categorie=2&armee=3">Armée de terre </a>
+                                    </li>
+                                    <li><a th:text="#{fra}" href="/concours?categorie=2&armee=1">Armée de l'air</a></li>
+                                    <li><a th:text="#{marine}" href="/concours?categorie=2&armee=2">Marine</a></li>
+                                </ul>
+                            </li>
+                            <!--                            <li><a th:text="#{medecinIntegration}" href="/concours?categorie=5">Militaire du rang</a>-->
+                            <!--                            </li>-->
+                        </ul>
+                    </li>
+                    <li><a th:text="#{compte}">Compte <i class="fa fa-angle-down"></i></a>
+                        <ul class="submenu">
+                            <li sec:authorize="isAnonymous()"><a href="/login" th:text="#{connexion}">Connexion</a></li>
+                            <li sec:authorize="isAuthenticated()"><a href="/user/inscriptions" th:text="#{mesconcours}">Mes
+                                concours</a></li>
+                            <li sec:authorize="isAnonymous()"><a href="/inscription" th:text="#{inscription}">Inscription</a></li>
+                            <li sec:authorize="isAuthenticated()"><a th:href="@{/user/profil}" th:text="#{profil}">Edit
+                                profile</a></li>
+                            <li sec:authorize="isAuthenticated()"><a th:href="@{/ChangePassword}"
+                                                                     th:text="#{ChangePassword}">Changer mot de
+                                passe</a></li>
+                            <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" th:text="#{deconnexion}">Déconnexion</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a th:text="#{avisaupublic}">Avis au public <i class="fa fa-angle-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="/avis" th:text="#{lireDocument}">lire les documents</a></li>
+                        </ul>
+                    </li>
+                    <!--                    <li><a href="/videos/video.mp4" th:text="#{commentInscrire}" target="_blank">Comment S'inscrire</a>-->
+                    <!--                    </li>-->
+                    <li><a href="/contact" th:text="#{contact}">contact</a></li>
+                    <li><a href="/apropos" th:text="#{apropos}">A propos</a></li>
+                    <li><a th:if="${#strings.startsWith(#locale,'ar')}" href="?lang=fr">francais</a></li>
+                    <li><a th:if="${#strings.startsWith(#locale,'fr')}" href="?lang=ar">العربية</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-1 col-sm-2 col-xs-3">
+            <div class="search-wrap text-right">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-3 clear col-xs-3 hidden-md hidden-lg" dir="rtl">
+            <div class="responsive-menu-wrap floatright"></div>
+        </div>
+    </div>
+</div>

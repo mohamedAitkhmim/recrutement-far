@@ -1,0 +1,116 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+<meta charset="utf-8">
+<head>
+    <title th:text="#{apropos}">A propos</title>
+    <th:block th:replace=fragements/style></th:block>
+</head>
+<body>
+
+<div class="search-area" data-th-replace="fragements/search::recherche"></div>
+
+<header class="header-area" id="sticky-header">
+    <div class="container" data-th-replace="fragements/header::entete"></div>
+</header>
+
+<div class="breadcumb-area black-opacity bg-img-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="breadcumb-wrap">
+                    <h2 th:text="#{forceArmeesRoyales}">FROCES ARMEES ROYALES</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcumb-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul>
+                        <li><a th:text="#{accueil}" href="/">Acceuil</a></li>
+                        <li>/</li>
+                        <li th:text="#{apropos}">A propos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="service-area pb-30 ">
+    <div class="container" th:attr="dir=#{direction}">
+        <div class="row" style="margin-top: 3cm;">
+            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+                <div class="section-title text-center">
+                    <h2 th:text="#{forceArmeesRoyales}">FORCES ARMEES ROYALES</h2>
+                    <h3 th:text="#{titre}">Histoire séculaire, Missions multidimensionnelles</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row " align="justify" style="margin: 10%;">
+            <blockquote>
+                <P th:text="#{p}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <!-- <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dans sa dimension DEFENSE, les FAR sont dépositaires et délégataires de la force que le Chef Suprême, représentant de la volonté nationale, doit opposer aux différentes menaces. En vertu de ces préalables, les FAR confortent alors leurs rôles de rempart et de garantes de l'indépendance.</P>
+                <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dans le cadre des interventions militaires hors des frontières, le Maroc se targue d'une expérience et d'une compétence rarement égalées dans les pays en voie de développement. Durant la période 1960-1975 les FAR sont intervenues sous l'égide de I'ONU au Congo. Dans un élan de solidarité arabe, un corps expéditionnaire a servi en 1973 au Golan et au Sinaï lors de la guerre d'octobre contre Israël. Au cours de la période 1975- 2005 notre glorieuse armée, dans le cadre de la coopération militaire ou d'accords bilatéraux a séjournée aux EAU et en Guinée Equatoriale. Fort de ces convictions politiques le Maroc est intervenu lors du conflit ZAlROlS au SHABA en avril 1977 et juin 1978. Aussi, un important contingent a assisté la Mauritanie dans sa lutte contre les mercenaires qui visaient la paralysie économique du pays par des attaques contre la cité minière de Zouerate.</P>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Riche de son expérience dans le cadre de la contingence, le Maroc est souvent sollicité pour les interventions dans les opérations de maintien de la paix, sous l’égide de I'Organisation des Nations Unis, intégrant des forces multinationales. Ainsi des contingents et des observateurs militaires ont été envoyés en Somalie en 1993, ont participé à I'UNAVEM en Angola, en Bosnie, au Kosovo (KFOR), en Côte d'ivoire (MONUCI) et en Haïti (MINUSTAH). Ils continuent aujourd’hui à défendre la paix et la stabilité au Congo (MONUC) et en République centrafricaine (MINUSCA).</p>
+                <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Les différents contingents des FAR, ont bâti à force d'abnégation et de dévouement, une réputation d'efficacité et de professionnalisme.</P>
+                <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dans le cadre de la gestion des sinistres qui ont endeuillés le Maroc, les FAR sont devenues un acteur principal, elles ont toujours contribué de manière énergique aux opérations de secours et d'assistance aux populations sinistrées, notamment lors du séisme dévastateur d'Agadir en 1960, a EL Hoceima 24 février 2004 et lors des inondations du Gharb. Elles sont intervenues aussi lors de l'incendie de la raffinerie de la SAMlR le 18 septembre 2002. La composante marine à participer activement à la lutte contre la pollution des cotes suite à l'explosion du pétrolier KHARK V en 1989.</P>
+                 --></blockquote>
+        </div>
+        <div style="margin-bottom: 25px;" class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12 col">
+                <div class="service-wrap" style="height: 250px;margin-top: 5%">
+                    <div class="service-content">
+                        <h3 th:text="#{titre1}">histoire de l'armée marocaine</h3>
+                        <p th:text="#{p1}">L’histoire de l’Armée marocaine ne date pas d’aujourd’hui, mais remonte à la
+                            genèse du pays et se confond avec son histoire nationale millénaire ...</p>
+                        <a th:href="#{lien1}" th:text="#{Lire}"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 col">
+                <div class="service-wrap" style="height: 250px;margin-top: 5%">
+                    <div class="service-content">
+                        <h3 th:text="#{titre2}">Création des FAR</h3>
+                        <p th:text="#{p2}">Les Forces Armées Royales (FAR) ont été créées par Sa Majesté le Roi Mohammed
+                            V ...</p>
+                        <a th:href="#{lien2}" th:text="#{Lire}">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 col">
+                <div class="service-wrap" style="height: 250px;margin-top: 5%">
+                    <div class="service-content">
+                        <h3 th:text="#{titre3}">Participation des FAR aux OMP</h3>
+                        <p th:text="#{p3}">La participation du Royaume du Maroc aux Opérations de maintien de la paix
+                            pour servir les valeurs nobles et les causes justes remonte à plus d’un demi-siècle ...</p>
+                        <a th:href="#{lien3}" th:text="#{Lire}">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 col">
+                <div class="service-wrap" style="height: 250px;margin-top: 5%">
+                    <div class="service-content">
+                        <h3 th:text="#{titre4}">Participation des soldats marocains aux deux conflits mondial</h3>
+                        <p th:text="#{p4}">La contribution des soldats marocains aux deux Guerres qui ont ravagé le
+                            monde au cours du 20ème siècle ...</p>
+                        <a th:href="#{lien4}" th:text="#{Lire}">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div data-th-replace="fragements/footer::basdepage"></div>
+</footer>
+
+<th:block th:replace=fragements/script></th:block>
+</body>
+</html>

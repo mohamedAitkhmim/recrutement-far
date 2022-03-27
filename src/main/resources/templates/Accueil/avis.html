@@ -1,0 +1,83 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+<meta charset="utf-8">
+<head>
+    <title th:text="#{avisaupublic}">Avis au public</title>
+    <th:block th:replace=fragements/style></th:block>
+</head>
+<body>
+
+<div class="search-area" data-th-replace="fragements/search::recherche"></div>
+
+<header class="header-area" id="sticky-header">
+    <div class="container" data-th-replace="fragements/header::entete"></div>
+</header>
+
+<div class="breadcumb-area black-opacity bg-img-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="breadcumb-wrap">
+                    <h2 th:text="#{avisaupublic}">Avis au public</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcumb-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul>
+                        <li><a th:text="#{accueil}" href="/">Acceuil</a></li>
+                        <li>/</li>
+                        <li th:text="#{avisaupublic}">Avis au public</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="service-area pb-30 ">
+    <div class="container" th:attr="dir=#{direction}">
+
+        <div class="row" style="margin-bottom: 2%;">
+            <div class="col-md-4 col-sm-6 col-xs-12 col">
+                <div class="service-wrap" style="height: 250px;margin-top: 5%">
+                    <div class="service-content" style="text-align: center;">
+                        <h3>AVIS DE CONCOURS D’ADMISSION AU CYCLE DES ELEVES SOUS-OFFICIERS ISSUS DES ISTA -ANNEE 2021- Armée de Terre</h3>
+                        <a href="/doc/avis/soffterre.pdf" target="_blank">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 col">
+                <div class="service-wrap" style="height: 250px;margin-top: 5%">
+                    <div class="service-content" style="text-align: center;">
+                        <h3>AVIS DE CONCOURS D’ADMISSION AU CYCLE DES ELEVES SOUS-OFFICIERS ISSUS DES ISTA -ANNEE 2021- Forces Royales Air</h3>
+                        <a href="/doc/avis/soffair.pdf" target="_blank">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 col">
+                <div class="service-wrap" style="height: 250px;margin-top: 5%">
+                    <div class="service-content" style="text-align: center;">
+                        <h3>AVIS DE CONCOURS D’ADMISSION AU CYCLE DES ELEVES SOUS-OFFICIERS ISSUS DES ISTA -ANNEE 2021- Marine Royale</h3>
+                        <a href="/doc/avis/soffmarine.pdf" target="_blank">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div data-th-replace="fragements/footer::basdepage"></div>
+</footer>
+
+<th:block th:replace=fragements/script></th:block>
+</body>
+</html>

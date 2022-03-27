@@ -1,0 +1,247 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+<meta charset="utf-8">
+<head>
+    <title th:text="#{QuestionsFrequemmentPosees}">Questions Fréquemment posées</title>
+    <th:block th:replace=fragements/style></th:block>
+</head>
+<body>
+
+<div class="search-area" data-th-replace="fragements/search::recherche"></div>
+
+<header class="header-area" id="sticky-header">
+    <div class="container" data-th-replace="fragements/header::entete"></div>
+</header>
+
+
+<div class="breadcumb-area black-opacity bg-img-1" th:attr="dir=#{direction}">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="breadcumb-wrap">
+                    <h2 th:text="#{QuestionsFrequemmentPosees}">Questions Fréquemment posées</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcumb-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul>
+                        <li><a th:text="#{accueil}" href="/">Acceuil</a></li>
+                        <li>/</li>
+                        <li>Faq</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="faq-area ptb-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+
+                <div class="faq-wrap">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="headingOne"> <!-- th:attr="dir=#{direction}" -->
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                       aria-expanded="true" aria-controls="collapseOne" th:text="#{question1}">
+                                        Comment je peux postuler à un concours ?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <p th:text="#{reponse1}">Afin de postuler au conours de votre choix,vous devez
+                                        d'abord vous inscrire, puis vous connectez et choisir un councours parmis la
+                                        liste fournie dans la section CONCOURS</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a th:text="#{question2}" class="collapsed" role="button" data-toggle="collapse"
+                                       data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                                       aria-controls="collapseTwo">
+                                        Comment je peux accéder à la liste des concours auxquels je suis inscrit ?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p th:text="#{reponse2}">Dans la section RESULTATS vous trouverez la liste des
+                                        concours auxquels vous êtes inscrit ainsi que les résultats de présélection une
+                                        fois ceux-ci seront disponibles</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a th:text="#{question3}" class="collapsed" role="button" data-toggle="collapse"
+                                       data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                                       aria-controls="collapseThree">
+                                        Est-ce que je peux annuler l'inscription à un concours ?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p th:text="#{reponse31}">Si vous avez postulé par erreur ou vous voulez annuler une
+                                        inscription à un concours, allez dans la section RESULTATS et cliquez sur le
+                                        bouton ANNULER L'INSCRIPTION en face du concours</p>
+                                    <p th:text="#{reponse32}">Si vous ne trouvez pas ledit bouton en face du concours
+                                        c'est que votre candidature a été traitée par nos opérateurs, attendez le
+                                        résultat après la fin des inscriptions</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="headingfour">
+                                <h4 class="panel-title">
+                                    <a th:text="#{question4}" class="collapsed" role="button" data-toggle="collapse"
+                                       data-parent="#accordion" href="#collapsefour" aria-expanded="false"
+                                       aria-controls="collapsefour">
+                                        Est-ce que je peux postuler à plusieurs concours à la fois ?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsefour" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p th:text="#{reponse4}">OUI, vous pouvez postuler à plusieurs concours à la fois.
+                                        Néanmoins la date du concours est généralement similaire pour la plupart des
+                                        concours, donc vous serez contraint de faire votre choix avant la date du
+                                        concours</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="headingfive">
+                                <h4 class="panel-title">
+                                    <a th:text="#{question5}" class="collapsed" role="button" data-toggle="collapse"
+                                       data-parent="#accordion" href="#collapsefive" aria-expanded="false"
+                                       aria-controls="collapsefive">
+                                        Comment je peux accéder aux résultats de présélection ?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsefive" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p th:text="#{reponse5}">Après la date de la fin des inscriptions, Allez dans la
+                                        section RESULTATS et authentifiez-vous avec votre email et mot de passe,vous
+                                        trouverez : Un lien vers votre convocation qui contient tous les details sur le
+                                        lieu et le déroulement du concours, Sinon le motif de rejet de votre
+                                        inscription </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="headingseven">
+                                <h4 class="panel-title">
+                                    <a th:text="#{GRQ1}" class="collapsed" role="button" data-toggle="collapse"
+                                       data-parent="#accordion" href="#collapseseven" aria-expanded="false"
+                                       aria-controls="collapseseven">
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseseven" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p th:utext="#{GRR1}"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="headingnine">
+                                <h4 class="panel-title">
+                                    <a th:text="#{GRQ2}" class="collapsed" role="button" data-toggle="collapse"
+                                       data-parent="#accordion" href="#collapsenine" aria-expanded="false"
+                                       aria-controls="collapsenine">
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsenine" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p th:utext="#{GRR2}"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="headingfsix">
+                                <h4 class="panel-title">
+                                    <a th:text="#{question6}" class="collapsed" role="button" data-toggle="collapse"
+                                       data-parent="#accordion" href="#collapsesix" aria-expanded="false"
+                                       aria-controls="collapsesix">
+                                        informations Additionnelles
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesix" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p th:text="#{reponse61}">-> Les informations communiquées dans le formulaire
+                                        d'inscription doivent être exactes (toute inconformité entrainera le rejet
+                                        automatique de votre candidature)</p>
+                                    <p th:text="#{reponse62}">-> Toute inscription doit être suivie par la confirmation
+                                        de l'EMAIL et la candidature à un concours, sinon elle sera ignorée</p>
+                                    <p th:text="#{reponse63}">-> Pour postuler à un concours vous devez d'abord faire
+                                        votre inscription</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-md-5 col-xs-12">
+                <div class="faq-form form-style">
+                    <div class="cf-msg"></div>
+                    <form th:action="@{/message/new}" method="post" id="cf" th:object="${message}">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <span th:text="#{nom}">Nom</span>
+                                <input  required th:field="*{nom}"  type="text" th:placeholder="#{nom}" id="fname" name="fname" maxlength="100">
+                            </div>
+                            <div class="col-xs-12">
+                                <span th:text="#{email}">Email</span>
+                                <input  required th:field="*{email}"  type="email" th:placeholder="#{email}" id="email" name="email">
+                            </div>
+                            <div class="col-xs-12">
+                                <span th:text="#{objet}">Objet</span>
+                                <input  required th:field="*{objet}" type="text" th:placeholder="#{objet}" id="subject" name="subject" maxlength="50">
+                            </div>
+                            <div class="col-xs-12">
+                                <span th:text="#{message}">Message</span>
+                                <textarea  required th:field="*{text}"  class="contact-textarea" th:placeholder="#{message}" id="msg" name="msg" maxlength="700"></textarea>
+                            </div>
+                            <div class="col-xs-12">
+                                <button  class="cont-submit btn-contact btn-style" th:text="#{envoyer}">Envoyer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+<!-- faq-area end -->
+
+<div class="quote-area bg-1"></div>
+
+<footer>
+    <div data-th-replace="fragements/footer::basdepage"></div>
+</footer>
+
+<th:block th:replace=fragements/script></th:block>
+</body>
+</html>

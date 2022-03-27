@@ -1,0 +1,84 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+<meta charset="utf-8">
+<head>
+    <title th:text="#{resultats}">Résultats</title>
+    <th:block th:replace=fragements/style></th:block>
+</head>
+</head>
+
+
+<body>
+
+<div class="search-area" data-th-replace="fragements/search::recherche"></div>
+
+<header class="header-area" id="sticky-header">
+    <div class="container" data-th-replace="fragements/header::entete"></div>
+</header>
+<div class="container">
+    <div class="contact-area ptbc-100" th:attr="dir=#{direction}">
+        <table class="table table-hover" style="margin-top: 100px;">
+            <thead>
+            <tr>
+                <th></th>
+                <th th:text="#{concours1}">Concours</th>
+                <th th:text="#{dernierDelais}">dernier delais</th>
+                <th th:text="#{categorie}">catégorie</th>
+                <th th:text="#{filiere}">catégorie</th>
+                <th th:text="#{ecole}">Ecole</th>
+                <th th:text="#{statut}">Statut</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c : ${liste}">
+                <td><img th:src="${c.concours.image}" style="width:120px;height:100px;"/></td>
+                <td th:text="${c.concours.titre}"></td>
+                <td th:text="${#dates.format(c.concours.fin, 'dd/MM/yyyy')}"></td>
+                <td th:text="${c.concours.categorie.nomCategorie}"></td>
+                <td th:text="${c.filiere}"></td>
+                <td th:text="${c.concours.ecoleFormation.nomEcole}"></td>
+                <td th:text="${c.concours.resultat} ? ${c.statut} : #{Encours}"></td>
+                <td th:if="${c.statut.statutID==3} AND ${c.concours.resultat}" th:text="'Motif : '+${c.motif}"></td>
+                <td th:if="${c.statut.statutID==2} AND ${c.concours.concoursID >= 20 OR c.concours.concoursID == 2 OR c.concours.concoursID == 6 OR c.concours.concoursID == 3} AND ${c.concours.resultat}"><a
+                        th:href="@{'convocation/'+${c.inscriptionID}}">Voir la convocation</a></td>
+                <td th:if="${c.statut.statutID==4} AND ${c.concours.resultat}"><a
+                        th:href="'/user/convocation3/'+${c.inscriptionID}">Voir la convocation</a></td>
+                <td th:if="${c.statut.statutID==2} AND ${c.concours.concoursID <= 19} AND ${c.concours.concoursID >= 7} AND ${c.concours.resultat}"><a style="color:blue; text-decoration: underline;"
+                        th:href="@{'nonrecu/'+${c.inscriptionID}}" th:text="#{details}"></a></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="col-xs-12">
+            <div class="pagination-wrap">
+                <ul>
+                    <li th:style="${liste.number==0} ? 'display:none'"><a
+                            th:href="@{'?page='+ ${liste.number}+'&search='+${search}+'&categorie='+${categorie}}"><i
+                            class="fa fa-angle-left"></i></a></li>
+                    <li th:classappend="${i==liste.number+1} ? active : ''"
+                        th:each="i : ${#numbers.sequence( pagination.min, pagination.max)}">
+                        <a th:text="${i}"
+                           th:href="@{'?page='+ ${i}+'&search='+${search}+'&categorie='+${categorie}}"></a>
+                    </li>
+                    <li th:style="${liste.number==pagination.pages-1} ? 'display:none'"><a
+                            th:href="@{'?page='+ ${liste.number+2}+'&search='+${search}+'&categorie='+${categorie}}"><i
+                            class="fa fa-angle-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+
+    <div data-th-replace="fragements/footer::basdepage"></div>
+
+</footer>
+
+<th:block th:replace=fragements/script></th:block>
+</body>
+
+</html>

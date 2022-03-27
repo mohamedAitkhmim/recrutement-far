@@ -1,0 +1,101 @@
+<meta charset="utf-8" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorator="template">
+<div class="container" data-th-fragment="categories-concours">
+    <div class="row">
+
+        <div> <!-- class="col-md-7 col-sm-10 col-xs-12 wow fadeInUp" -->
+            <div class="section-title text-center">
+                <h2 th:text="#{concours}">Concours</h2>
+                <p th:text="#{paragrapheConcours}">Ce site est dédié aux concours d'accès aux différents établissement
+                    de formation des Forces Armées Royales</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".1s">
+            <div class="team-wrap2">
+                <div class="team-img">
+                    <img src="/cat/off.jpg" alt="" style="height: 180px;"/>
+
+                    <a href="/user/inscriptions" th:title="#{cycleEleveOfficier}">
+                        <div class="overlay">
+                        </div>
+                    </a>
+                </div>
+                <div class="team-content">
+                    <a href="/user/inscriptions" th:title="#{cycleEleveOfficier}">
+                        <h3 th:text="#{cycleEleveOfficier}">Elève officier</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".2s">
+            <div class="team-wrap2">
+                <div class="team-img">
+                    <a href="/concours?categorie=2" th:title="#{cycleEleveSousOfficer}">
+                        <div class="overlay">
+                        </div>
+                    </a>
+                    <img src="/cat/soff.jpg" alt="" style="height: 180px;"/>
+                </div>
+                <div class="team-content">
+                    <a href="/concours?categorie=2" th:title="#{cycleEleveSousOfficer}">
+                        <h3 th:text="#{cycleEleveSousOfficer}">Eléve sous-officier</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".3s">
+            <div class="team-wrap2">
+                <div class="team-img">
+                    <a href="/concours?categorie=4"  th:title="#{lycee}">
+                        <div class="overlay">
+                        </div>
+                    </a>
+                    <img src="/cat/lycee.jpg" alt="" style="height: 180px;"/>
+                </div>
+                <div class="team-content">
+                    <a href="/concours?categorie=4" th:title="#{lycee}">
+                        <h3 th:text="#{lycee}">Lycée des Forces Armées Royales</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".3s">
+            <div class="team-wrap2">
+                <div class="team-img">
+                    <a href="#" data-toggle="modal" data-target="#myModal" th:title="#{medecinIntegration}">
+                        <div class="overlay">
+                        </div>
+                    </a>
+                    <img src="/cat/sante.png" alt="" style="height: 180px;"/>
+                </div>
+                <div class="team-content">
+                    <a href="#" data-toggle="modal" data-target="#myModal" th:title="#{medecinIntegration}">
+                        <h3 th:text="#{medecinIntegration}"></h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 col wow fadeInUp" data-wow-delay=".2s">
+            <div class="team-wrap2">
+                <div class="team-img">
+                    <a href="/inscription" th:title="#{cycleEleveSousOfficer}">
+                        <div class="overlay">
+                        </div>
+                    </a>
+                    <img src="/cat/mil3.jpg" alt=""/>
+                </div>
+                <div class="team-content">
+                    <a href="/inscription" th:title="#{cycleEleveSousOfficer}">
+                        <h3 th:text="#{cycleEleveSousOfficer}">Eléve sous-officier</h3>
+                    </a>
+                </div>
+            </div>
+        </div-->
+
+</div>

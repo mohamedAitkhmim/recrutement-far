@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Convocation</title>
+    <style>
+        .myParagraphe{
+            font-family:Bookman Old Style;
+            font-size:20px;
+            line-height: 200%;
+
+        }
+    </style>
+</head>
+<body>
+    <table  width="100%" style="margin: 0px;">
+        <tr>
+            <td style="text-align:left;">
+                <img width="150px" height="150px" src="{insigne}">
+            </td>
+            <td style="text-align:center;font-family:'Bookman Old Style';font-size:11px;font-weight: bold;text-decoration: underline">
+                <p>ROYAUME DU MAROC</p>
+                <p>FORCES ARMEES ROYALES</p>
+                <p>{ecole}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <p style="font-family:'Bookman Old Style';font-size:20px;font-weight: bold" ><u>=00=  CONVOCATION  N°{numConvocation} =00=</u></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p style="text-indent:40px;margin: 5% 5% 0% 5%" class="myParagraphe" >
+                    Monsieur/Mademoiselle <b>{nomprenom}</b>, CNIE N° <b>{cin}</b>, demeurant à {addresse}, Tél N° {telephone}, est prié(e) de se présenter le {dateheure} <strong>{addresseEcole}</strong> en vue de subir les épreuves du {concours}, muni(e) des pièces  ci-après :
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <ul style="margin-left: 8%;" class="myParagraphe" >
+                    <li>La présente convocation ;</li>
+                    <li>La CNIE originale {eventuellement}</li>
+                    <li>Une photocopie de la CNIE {eventuellement}</li>
+                    <li>{doc1}</li>
+                    <li>{doc2}</li>
+                    <li>Effets d’habillement, de toilette et de sport.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left;marging-left=20px">
+                <img width="150px" height="50px" src="{code}">
+            </td>
+            <td colspan="2" style="text-align:center;margin-right: 5%;font-weight: bold;font-size: 15px">
+                <p> A {ville}, le {date}</p>
+                   <p>Le {directeur1}, {directeur2}</p>
+            </td>
+
+        </tr>
+    </table>
+    <div style="position: absolute;bottom: -20px;">
+        <td colspan="2" style="po padding: 5% 5% 5% 5% " >
+            <hr style="margin-top: 2%">
+            <p style="font-style: italic;" ><strong><u>NB :</u></strong> Les élèves ayant satisfait aux différents tests seront retenus à l'Ecole pour suivre directement la formation. Ceux par contre classés en liste d'attente seront renvoyés sur leur foyer et pourront être convoqués ultérieurement pour honorer les places rendues vacantes.</p>
+        </td>
+    </div>
+</body>
+</html>
